@@ -46,7 +46,7 @@ const convert = () =>
            const source = (fs.readFileSync(sourceFile)).toString()
            const generated = elmxParser(source)
            const targetName = pascalize(file.split('.')[0])
-           const elmSource = `view${targetName} = ${generated}`
+           const elmSource = `${targetName[0].toLowerCase() + targetName.slice(1)} = ${generated}`
            return elmSource
        } catch (e) {
            log(sourceFile, 'failed')
