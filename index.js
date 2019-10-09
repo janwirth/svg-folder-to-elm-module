@@ -28,14 +28,14 @@ function log (a) {
 }
 
 
-const skeleton = `module ${targetModule} exposing (view)
+const skeleton = `module ${targetModule} exposing (..)
 
-    {-| Generated with elm-svg-icons -}
+{-| Generated with elm-svg-icons -}
 
-    import Html
-    import Html.Attributes
+import Html
+import Html.Attributes
 
-    `
+`
 
 const convert = () =>
     fs.readdirSync(SET_DIRECTORY)
