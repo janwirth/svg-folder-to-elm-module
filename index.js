@@ -50,8 +50,9 @@ const convert = () =>
                 .replace(/viewbox/g, 'viewBox')
                 .replace(/Html/g, 'Svg')
                 .replace(/Svg\.Attributes/g, 'Html.Attributes')
+                .replace(/"svg" \[/g, '"svg" [Svg.Attributes.fill fill,')
            const targetName = pascalize(file.split('.')[0])
-           const elmSource = `${targetName[0].toLowerCase() + targetName.slice(1)} = ${generated}`
+           const elmSource = `${targetName[0].toLowerCase() + targetName.slice(1)} fill = ${generated}`
            return elmSource
        } catch (e) {
            log(sourceFile, 'failed')
