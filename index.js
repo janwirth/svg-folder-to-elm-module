@@ -32,10 +32,12 @@ const skeleton = `module ${targetModule} exposing (..)
 
 {-| Generated with elm-svg-icons -}
 
-import Html
+import Svg
+import Svg.Attributes
 import Html.Attributes
 
 `
+
 
 const convert = () =>
     fs.readdirSync(SET_DIRECTORY)
@@ -45,6 +47,9 @@ const convert = () =>
        try {
            const source = (fs.readFileSync(sourceFile)).toString()
            const generated = elmxParser(source)
+                .replace(/viewbox/g, 'viewBox')
+                .replace(/Html/g, 'Svg')
+                .replace(/Svg\.Attributes/g, 'Html.Attributes')
            const targetName = pascalize(file.split('.')[0])
            const elmSource = `${targetName[0].toLowerCase() + targetName.slice(1)} = ${generated}`
            return elmSource
