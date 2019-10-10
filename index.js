@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // config
-const SET_DIRECTORY = 'octicons'
+const SET_DIRECTORY = 'boxicons'
 targetModule = pascalize(SET_DIRECTORY)
 
 const elmxParser = require('elmx');
