@@ -1,13 +1,17 @@
 {
-  "name": "elm-svg-icons",
-  "version": "1.0.0",
+  "name": "svg-folder-to-elm-module",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "bin": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franzskuffka/svg-folder-to-elm-module.git"
+  },
+  "author": "Jan Wirth <contact@jan-wirth.de>",
+  "license": "MIT",
   "dependencies": {
     "elmx": "^2.0.1"
   }

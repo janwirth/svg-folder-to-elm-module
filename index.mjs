@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
+import Process from "process"
+
 // config
-const SET_DIRECTORY = 'boxicons'
-targetModule = pascalize(SET_DIRECTORY)
+const SET_DIRECTORY = process.argv[2]
+const targetModule = pascalize(SET_DIRECTORY)
 
-const elmxParser = require('elmx');
+import elmxParser from 'elmx'
 
-const fs = require('fs');
+import fs from 'fs';
 
 function pascalize(text) {
     text = text.replace(/[-_\s.]+(.)?/g, (match, c) => c ? c.toUpperCase() : '');
@@ -15,7 +17,6 @@ function pascalize(text) {
 
 async function run () {
     const body = convert().join('\n\n')
-    log(body)
     const content = skeleton + body
     const target = `${targetModule}.elm`
     fs.writeFile(target, content, () => log(target, 'written'))
